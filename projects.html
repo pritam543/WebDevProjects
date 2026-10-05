@@ -1,105 +1,290 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>All Projects | WebdevProjects</title>
+    <title>Explore All Projects | WebDevProjects</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-22FEKRPH78"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-22FEKRPH78');
+        gtag('config', 'G-22FEKRPH78');
     </script>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Sleek Modern Color Accent Polish */
+        body {
+            background: radial-gradient(circle at top, #0f172a 0%, #070b14 100%);
+            color: #f1f5f9;
+        }
+
+        .highlight {
+            color: #38bdf8;
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .level-1-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+
+        .level-2-badge {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+        }
+
+        .project-card.featured {
+            border: 1.5px solid #f59e0b;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+        }
+
+        .project-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: #f8fafc;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .card-btn {
+            flex: 1;
+            text-align: center;
+            padding: 9px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .card-btn-demo {
+            background: #0284c7;
+            color: #ffffff;
+        }
+
+        .card-btn-demo:hover {
+            background: #0369a1;
+        }
+
+        .card-btn-code {
+            background: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+        }
+
+        .card-btn-code:hover {
+            background: #334155;
+            color: #ffffff;
+        }
+    </style>
 </head>
+
 <body>
 
+    <!-- Top Navigation Bar -->
     <header class="navbar">
-        <div class="logo"><span class="highlight">Frontend</span>Craft 🚀</div>
-        <a href="index.html" class="back-home">⬅ Home Page</a>
-    </header>
-
-    <main class="container">
-        
-        <div class="page-title">
-            <h1>All Frontend Projects</h1>
-            <p>"Click on any project to view its Live Preview and Source Code."</p>
+        <div class="logo-container">
+            <a href="index.html" class="logo"><span class="highlight">WebDev</span>Projects 🚀</a>
+            <p class="tagline">Clean Code • No Inline CSS • Free Practice</p>
         </div>
 
-        <!-- LEVEL 1 PROJECTS LIST -->
-        <section class="level-section">
-            <h2>🟢 Level 1: Beginner HTML & CSS Projects</h2>
-            <div class="card-grid">
-                
-                <!-- Project 1 -->
-                <div class="card">
-                    <span class="badge basic">HTML & CSS</span>
-                    <h3>1. Personal Portfolio Website</h3>
-                    <p>Clean responsive 1-page portfolio layout with header, skills grid, and contact form.</p>
-                    <a href="projects/01-portfolio/index.html" class="btn btn-primary">Open Project</a>
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="projects.html" class="nav-item active">Explore Projects</a>
+            <a href="cheatsheets.html" class="nav-item badge-nav">📑 Cheatsheets</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container" style="max-width: 1100px; margin: 40px auto; padding: 0 20px;">
+
+        <div class="page-title" style="text-align: center; margin-bottom: 45px;">
+            <h1 style="font-size: 32px; margin-bottom: 8px;">Explore All Practice Projects</h1>
+            <p style="color: #94a3b8; font-size: 16px;">Browse real-world beginner to advanced frontend projects with
+                live preview and source code.</p>
+        </div>
+
+        <!-- ==================== LEVEL 1 PROJECTS ==================== -->
+        <div class="level-section">
+            <span class="level-badge level-1-badge">🌱 Level 1: HTML & CSS Fundamentals</span>
+            <div class="projects-grid">
+
+                <!-- Project 01 -->
+                <div class="project-card">
+                    <div>
+                        <h3>01. Personal Portfolio Page</h3>
+                        <p>Clean semantic personal bio page featuring responsive card design, custom CSS typography, and
+                            structured sections.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="projects/01-portfolio/demo.html" class="card-btn card-btn-demo">Live Demo 🚀</a>
+                        <a href="projects/01-portfolio/index.html" class="card-btn card-btn-code">Source Code 💻</a>
+                    </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="card">
-                    <span class="badge basic">HTML & CSS</span>
-                    <h3>2. Restaurant & Cafe Landing Page</h3>
-                    <p>Food menu grid, opening hours table, hero banner, and responsive footer layout.</p>
-                    <a href="projects/02-cafe/index.html" class="btn btn-primary">Open Project</a>
+                <!-- Project 02 -->
+                <div class="project-card">
+                    <div>
+                        <h3>02. Product Landing Page</h3>
+                        <p>High-converting tech gadget product showcase built with CSS Flexbox, feature badges, and
+                            modern CTA elements.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="projects/02-landing-page/demo.html" class="card-btn card-btn-demo">Live Demo 🚀</a>
+                        <a href="projects/02-landing-page/index.html" class="card-btn card-btn-code">Source Code 💻</a>
+                    </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="card">
-                    <span class="badge basic">HTML & CSS</span>
-                    <h3>3. E-Commerce Product Page</h3>
-                    <p>Single product show-off with buy options, feature badges, and customer reviews.</p>
-                    <a href="projects/03-product-page/index.html" class="btn btn-primary">Open Project</a>
+                <!-- Project 03 -->
+                <div class="project-card">
+                    <div>
+                        <h3>03. Responsive Tech Blog</h3>
+                        <p>Clean multi-column responsive blog portal using modern CSS Grid, hover card elevations, and
+                            semantic tags.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="projects/03-blog/demo.html" class="card-btn card-btn-demo">Live Demo 🚀</a>
+                        <a href="projects/03-blog/index.html" class="card-btn card-btn-code">Source Code 💻</a>
+                    </div>
                 </div>
 
             </div>
-        </section>
+        </div>
 
-        <!-- LEVEL 2 PROJECTS LIST -->
-        <section class="level-section">
-            <h2>🔴 Level 2: Advanced UI Showcase</h2>
-            <div class="card-grid">
+        <!-- ==================== LEVEL 2 PROJECTS ==================== -->
+        <div class="level-section">
+            <span class="level-badge level-2-badge">⚡ Level 2: Interactive JavaScript Apps</span>
+            <div class="projects-grid">
 
-                <!-- Project 4 -->
-                <div class="card featured-card">
-                    <span class="badge advanced">Featured Project</span>
-                    <h3>4. End Game - Gaming Zone</h3>
-                    <p>Dark neon gaming portal with news cards, video section, and featured games showcase.</p>
-                    <a href="projects/04-gaming-zone/index.html" class="btn btn-glow">Open Project</a>
+                <!-- Project 04 -->
+                <div class="project-card featured">
+                    <div>
+                        <h3>04. Retro Arcade Hub (Gaming Zone)</h3>
+                        <p>Interactive web games including Tic-Tac-Toe and Rock Paper Scissors with real-time score
+                            tracking and state logic.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="projects/04-gaming-zone/demo.html" class="card-btn card-btn-demo">Live Demo 🚀</a>
+                        <a href="projects/04-gaming-zone/index.html" class="card-btn card-btn-code">Source Code 💻</a>
+                    </div>
                 </div>
 
-                <!-- Project 5: Quiz App (Direct to demo.html) -->
-                <div class="card featured-card">
-                    <span class="badge advanced">Featured Project</span>
-                    <h3>5. Interactive Quiz App</h3>
-                    <p>Dynamic quiz application with interactive multiple-choice questions, live countdown timer, and score calculation.</p>
-                    <a href="projects/05-quiz-app/demo.html" class="btn btn-glow">Open Project</a>
+                <!-- Project 05 -->
+                <div class="project-card featured">
+                    <div>
+                        <h3>05. Interactive Quiz App</h3>
+                        <p>Dynamic timed quiz challenge with animated progress bars, question shuffling, instant
+                            feedback, and final scorecards.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="projects/05-quiz-app/demo.html" class="card-btn card-btn-demo">Live Demo 🚀</a>
+                        <a href="projects/05-quiz-app/index.html" class="card-btn card-btn-code">Source Code 💻</a>
+                    </div>
                 </div>
 
-                <!-- Project 06: Coming Soon -->
-                <div class="card">
-                    <span class="badge advanced">Coming Soon</span>
-                    <h3>06. To-Do List App</h3>
-                    <p>A smart task management app with LocalStorage integration, edit/delete features, and task progress tracking.</p>
-                    <a href="#" class="btn btn-disabled" style="pointer-events: none;">Work in Progress ⏳</a>
+                <!-- Project 06 -->
+                <div class="project-card">
+                    <div>
+                        <h3>06. Stopwatch & Lap Timer</h3>
+                        <p>High-precision millisecond stopwatch featuring Start, Pause, Reset, and dynamic Lap record
+                            tracking logic.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="projects/06-stopwatch/demo.html" class="card-btn card-btn-demo">Live Demo 🚀</a>
+                        <a href="projects/06-stopwatch/index.html" class="card-btn card-btn-code">Source Code 💻</a>
+                    </div>
+                </div>
+
+                <!-- Project 07 -->
+                <div class="project-card">
+                    <div>
+                        <h3>07. Smart Expense Tracker</h3>
+                        <p>Complete budget & expense manager with balance calculations, income/expense breakdown, and
+                            LocalStorage data saving.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="projects/07-expense-tracker/demo.html" class="card-btn card-btn-demo">Live Demo 🚀</a>
+                        <a href="projects/07-expense-tracker/index.html" class="card-btn card-btn-code">Source Code
+                            💻</a>
+                    </div>
+                </div>
+
+                <!-- Project 08 -->
+                <div class="project-card">
+                    <div>
+                        <h3>08. Real-Time Weather App</h3>
+                        <p>Live meteorological weather forecast dashboard powered by Open-Meteo REST API, dynamic
+                            search, and condition badges.</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="projects/08-weather-app/demo.html" class="card-btn card-btn-demo">Live Demo 🚀</a>
+                        <a href="projects/08-weather-app/index.html" class="card-btn card-btn-code">Source Code 💻</a>
+                    </div>
                 </div>
 
             </div>
-        </section>
+        </div>
 
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>© 2026 <strong>WebdevProjects</strong> | All Projects List</p>
+        <p>© 2026 <strong>WebDevProjects</strong> | Build Your Web Development Career with Practical Code 💻</p>
     </footer>
 
 </body>
+
 </html>
