@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07. Smart Expense Tracker - Live Demo | WebDevProjects</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-22FEKRPH78"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-22FEKRPH78');
+    </script>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0b0f19 0%, #1e293b 100%);
+        }
+
+        .app-navbar {
+            background-color: #111827;
+            padding: 14px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #1f2937;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .back-btn {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .project-wrapper {
+            margin-top: 90px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="app-navbar">
+        <div>
+            <a href="../../projects.html" class="back-btn">⬅ Back to Projects</a>
+        </div>
+        <div>
+            <a href="index.html" class="btn-glow"
+                style="padding: 8px 18px; font-size: 13px; text-decoration: none; border-radius: 6px; display: inline-block;">View
+                Source Code 💻</a>
+        </div>
+    </header>
+
+    <!-- LIVE EXPENSE TRACKER CONTAINER -->
+    <div class="project-wrapper">
+        <div class="tracker-container">
+            <h2 class="app-title">🧮 Smart Expense Tracker</h2>
+
+            <div class="balance-card">
+                <span class="balance-label">Total Balance</span>
+                <h1 id="totalBalance">₹0.00</h1>
+            </div>
+
+            <div class="inc-exp-container">
+                <div class="inc-box">
+                    <span>Income</span>
+                    <p id="totalIncome" class="money plus">+₹0.00</p>
+                </div>
+                <div class="exp-box">
+                    <span>Expense</span>
+                    <p id="totalExpense" class="money minus">-₹0.00</p>
+                </div>
+            </div>
+
+            <h3 class="section-title">Add Transaction</h3>
+            <form id="transactionForm" onsubmit="addTransaction(event)">
+                <div class="form-control">
+                    <label for="text">Description</label>
+                    <input type="text" id="text" placeholder="e.g. Salary, Grocery..." required />
+                </div>
+                <div class="form-control">
+                    <label for="amount">Amount (+ for Income, - for Expense)</label>
+                    <input type="number" id="amount" placeholder="e.g. 5000 or -500" required />
+                </div>
+                <button type="submit" class="submit-btn">Add Transaction</button>
+            </form>
+
+            <h3 class="section-title">Transaction History</h3>
+            <ul id="transactionList" class="list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.0"></script>
+</body>
+
+</html>

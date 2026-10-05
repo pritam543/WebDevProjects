@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.weather-container {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 420px;
+    padding: 30px 24px;
+    text-align: center;
+}
+
+.app-title {
+    font-size: 20px;
+    color: #1e293b;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+    border-color: #3b82f6;
+}
+
+.search-box button {
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-box button:hover {
+    background: #2563eb;
+}
+
+.status-msg {
+    font-size: 14px;
+    color: #64748b;
+    margin: 15px 0;
+}
+
+.status-msg.error {
+    color: #ef4444;
+}
+
+.hidden {
+    display: none;
+}
+
+.weather-card {
+    background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+    border-radius: 12px;
+    padding: 22px 18px;
+    border: 1px solid #bfdbfe;
+}
+
+.weather-card h3 {
+    font-size: 20px;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.weather-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.weather-emoji {
+    font-size: 44px;
+}
+
+.temperature {
+    font-size: 38px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.condition-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 20px;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-around;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-item span {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.detail-item strong {
+    font-size: 14px;
+    color: #0f172a;
+}

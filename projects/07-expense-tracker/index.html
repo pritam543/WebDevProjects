@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07. Smart Expense Tracker - Source Code | WebDevProjects</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-22FEKRPH78"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-22FEKRPH78');
+    </script>
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .code-title {
+            color: #38bdf8;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="../../projects.html" class="back-home">⬅ Back to Projects</a>
+        </div>
+        <div class="nav-links">
+            <a href="demo.html" class="btn btn-glow"
+                style="padding: 8px 20px; font-size: 13px; text-decoration: none; border-radius: 6px; display: inline-block;">Live
+                Demo 🚀</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-title">
+            <h1>07. Smart Expense Tracker</h1>
+            <p>Track cash flow, balance, income, and expenses with persistent LocalStorage and dynamic calculation
+                arrays.</p>
+        </div>
+
+        <section class="cheatsheet-card" style="margin-top: 30px;">
+            <h2 style="color: #f8fafc; font-size: 22px; margin-bottom: 5px;">💻 Complete Source Code</h2>
+            <p style="color: #94a3b8; font-size: 14px;">Copy HTML, CSS, and JS code below to build this expense tracker
+                locally.</p>
+
+            <div class="code-header"><span class="code-title">📄 HTML (Structure)</span></div>
+            <div class="code-box">
+                <pre><code>&lt;div class="tracker-container"&gt;
+    &lt;h2 class="app-title"&gt;🧮 Smart Expense Tracker&lt;/h2&gt;
+    &lt;div class="balance-card"&gt;
+        &lt;span class="balance-label"&gt;Total Balance&lt;/span&gt;
+        &lt;h1 id="totalBalance"&gt;₹0.00&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div class="inc-exp-container"&gt;
+        &lt;div class="inc-box"&gt;
+            &lt;span&gt;Income&lt;/span&gt;
+            &lt;p id="totalIncome" class="money plus"&gt;+₹0.00&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="exp-box"&gt;
+            &lt;span&gt;Expense&lt;/span&gt;
+            &lt;p id="totalExpense" class="money minus"&gt;-₹0.00&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;form id="transactionForm" onsubmit="addTransaction(event)"&gt;
+        &lt;input type="text" id="text" placeholder="Description" required /&gt;
+        &lt;input type="number" id="amount" placeholder="Amount (+/-)" required /&gt;
+        &lt;button type="submit"&gt;Add Transaction&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;ul id="transactionList" class="list"&gt;&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-header"><span class="code-title">🎨 CSS (Styling)</span></div>
+            <div class="code-box">
+                <pre><code>.tracker-container {
+    background: #ffffff;
+    border-radius: 14px;
+    max-width: 440px;
+    padding: 28px 24px;
+}
+.balance-card {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+}
+.inc-exp-container {
+    display: flex;
+    justify-content: space-between;
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px;
+}
+.money.plus { color: #10b981; }
+.money.minus { color: #ef4444; }</code></pre>
+            </div>
+
+            <div class="code-header"><span class="code-title">⚡ JavaScript (Logic &amp; LocalStorage)</span></div>
+            <div class="code-box">
+                <pre><code>let transactions = JSON.parse(localStorage.getItem("expense_transactions")) || [];
+
+function updateValues() {
+    const amounts = transactions.map(t => t.amount);
+    const total = amounts.reduce((acc, item) => acc + item, 0).toFixed(2);
+    const income = amounts.filter(item => item > 0).reduce((acc, item) => acc + item, 0).toFixed(2);
+    const expense = (amounts.filter(item => item < 0).reduce((acc, item) => acc + item, 0) * -1).toFixed(2);
+
+    document.getElementById("totalBalance").textContent = `₹${total}`;
+    document.getElementById("totalIncome").textContent = `+₹${income}`;
+    document.getElementById("totalExpense").textContent = `-₹${expense}`;
+}
+
+function addTransaction(e) {
+    e.preventDefault();
+    const text = document.getElementById("text").value.trim();
+    const amount = Number(document.getElementById("amount").value);
+    transactions.push({ id: Date.now(), text, amount });
+    localStorage.setItem("expense_transactions", JSON.stringify(transactions));
+    renderTransactions();
+    updateValues();
+}</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 <strong>WebDevProjects</strong> | Project Source Code View</p>
+    </footer>
+</body>
+
+</html>

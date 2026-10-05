@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06. Stopwatch & Lap Timer - Source Code | WebDevProjects</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-22FEKRPH78"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-22FEKRPH78');
+    </script>
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .code-title {
+            color: #38bdf8;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="../../projects.html" class="back-home">⬅ Back to Projects</a>
+        </div>
+        <div class="nav-links">
+            <a href="demo.html" class="btn btn-glow"
+                style="padding: 8px 20px; font-size: 13px; text-decoration: none; border-radius: 6px; display: inline-block;">Live
+                Demo 🚀</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-title">
+            <h1>06. Stopwatch & Lap Timer</h1>
+            <p>Precise JavaScript time tracker using Date.now() timestamp logic with lap splits and reset functionality.
+            </p>
+        </div>
+
+        <section class="cheatsheet-card" style="margin-top: 30px;">
+            <h2 style="color: #f8fafc; font-size: 22px; margin-bottom: 5px;">💻 Complete Source Code</h2>
+            <p style="color: #94a3b8; font-size: 14px;">Copy HTML, CSS, and JS code below to build this stopwatch
+                locally.</p>
+
+            <div class="code-header"><span class="code-title">📄 HTML (Structure)</span></div>
+            <div class="code-box">
+                <pre><code>&lt;div class="stopwatch-container"&gt;
+    &lt;h2 class="app-title"&gt;⏱️ Stopwatch &amp; Lap Timer&lt;/h2&gt;
+    &lt;div class="display"&gt;
+        &lt;span id="minutes"&gt;00&lt;/span&gt;:&lt;span id="seconds"&gt;00&lt;/span&gt;:&lt;span id="milliseconds"&gt;00&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="controls"&gt;
+        &lt;button id="startBtn" class="sw-btn start" onclick="startTimer()"&gt;Start&lt;/button&gt;
+        &lt;button id="pauseBtn" class="sw-btn pause" onclick="pauseTimer()" disabled&gt;Pause&lt;/button&gt;
+        &lt;button id="lapBtn" class="sw-btn lap" onclick="recordLap()" disabled&gt;Lap&lt;/button&gt;
+        &lt;button id="resetBtn" class="sw-btn reset" onclick="resetTimer()"&gt;Reset&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="laps-container"&gt;
+        &lt;h3&gt;Lap Records&lt;/h3&gt;
+        &lt;ul id="lapsList"&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-header"><span class="code-title">🎨 CSS (Styling)</span></div>
+            <div class="code-box">
+                <pre><code>.stopwatch-container {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 440px;
+    padding: 30px 25px;
+    text-align: center;
+}
+.display {
+    font-size: 42px;
+    font-weight: 700;
+    color: #0f172a;
+    background: #f1f5f9;
+    padding: 16px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    border: 2px solid #e2e8f0;
+}
+.controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+.sw-btn {
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.sw-btn.start { background: #10b981; color: #fff; }
+.sw-btn.pause { background: #f59e0b; color: #fff; }
+.sw-btn.lap { background: #3b82f6; color: #fff; }
+.sw-btn.reset { background: #ef4444; color: #fff; }</code></pre>
+            </div>
+
+            <div class="code-header"><span class="code-title">⚡ JavaScript (Logic)</span></div>
+            <div class="code-box">
+                <pre><code>let startTime = 0, elapsedTime = 0, timerInterval = null, lapCounter = 1;
+
+function startTimer() {
+    startTime = Date.now() - elapsedTime;
+    timerInterval = setInterval(() => {
+        elapsedTime = Date.now() - startTime;
+        printTime();
+    }, 10);
+    document.getElementById("startBtn").disabled = true;
+    document.getElementById("pauseBtn").disabled = false;
+    document.getElementById("lapBtn").disabled = false;
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+    document.getElementById("startBtn").disabled = false;
+    document.getElementById("pauseBtn").disabled = true;
+    document.getElementById("lapBtn").disabled = true;
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    elapsedTime = 0;
+    lapCounter = 1;
+    printTime();
+    document.getElementById("lapsList").innerHTML = "";
+    document.getElementById("startBtn").disabled = false;
+    document.getElementById("pauseBtn").disabled = true;
+    document.getElementById("lapBtn").disabled = true;
+}
+
+function recordLap() {
+    const formatted = formatTime(elapsedTime);
+    const lapTimeStr = `${formatted.m}:${formatted.s}:${formatted.ms}`;
+    const li = document.createElement("li");
+    li.innerHTML = `&lt;span&gt;Lap ${lapCounter}&lt;/span&gt;&lt;strong&gt;${lapTimeStr}&lt;/strong&gt;`;
+    document.getElementById("lapsList").prepend(li);
+    lapCounter++;
+}</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 <strong>WebDevProjects</strong> | Project Source Code View</p>
+    </footer>
+</body>
+
+</html>

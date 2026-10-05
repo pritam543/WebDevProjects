@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.stopwatch-container {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 440px;
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.app-title {
+    font-size: 20px;
+    color: #1e293b;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.display {
+    font-size: 42px;
+    font-weight: 700;
+    color: #0f172a;
+    background: #f1f5f9;
+    padding: 16px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    border: 2px solid #e2e8f0;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.sw-btn {
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sw-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.sw-btn.start {
+    background: #10b981;
+    color: #fff;
+}
+
+.sw-btn.start:hover:not(:disabled) {
+    background: #059669;
+}
+
+.sw-btn.pause {
+    background: #f59e0b;
+    color: #fff;
+}
+
+.sw-btn.pause:hover:not(:disabled) {
+    background: #d97706;
+}
+
+.sw-btn.lap {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.sw-btn.lap:hover:not(:disabled) {
+    background: #2563eb;
+}
+
+.sw-btn.reset {
+    background: #ef4444;
+    color: #fff;
+}
+
+.sw-btn.reset:hover:not(:disabled) {
+    background: #dc2626;
+}
+
+.laps-container {
+    text-align: left;
+    max-height: 180px;
+    overflow-y: auto;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+}
+
+.laps-container h3 {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#lapsList {
+    list-style: none;
+}
+
+#lapsList li {
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}

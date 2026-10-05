@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08. Real-Time Weather App - Live Demo | WebDevProjects</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-22FEKRPH78"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-22FEKRPH78');
+    </script>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0b0f19 0%, #1e293b 100%);
+        }
+
+        .app-navbar {
+            background-color: #111827;
+            padding: 14px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #1f2937;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .back-btn {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .project-wrapper {
+            margin-top: 100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="app-navbar">
+        <div>
+            <a href="../../projects.html" class="back-btn">⬅ Back to Projects</a>
+        </div>
+        <div>
+            <a href="index.html" class="btn-glow"
+                style="padding: 8px 18px; font-size: 13px; text-decoration: none; border-radius: 6px; display: inline-block;">View
+                Source Code 💻</a>
+        </div>
+    </header>
+
+    <!-- LIVE WEATHER CONTAINER -->
+    <div class="project-wrapper">
+        <div class="weather-container">
+            <h2 class="app-title">🌦️ Real-Time Weather</h2>
+
+            <form class="search-box" onsubmit="handleSearch(event)">
+                <input type="text" id="cityInput" placeholder="Enter city name..." required />
+                <button type="submit" id="searchBtn">Search</button>
+            </form>
+
+            <div id="loading" class="status-msg hidden">Fetching weather data...</div>
+            <div id="error" class="status-msg error hidden">City not found. Please try again!</div>
+
+            <div id="weatherContent" class="weather-card">
+                <h3 id="cityName">Indore, India</h3>
+                <div class="weather-main">
+                    <span id="weatherIcon" class="weather-emoji">☀️</span>
+                    <span id="temp" class="temperature">--°C</span>
+                </div>
+                <p id="condition" class="condition-text">Clear Sky</p>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <span>💨 Wind Speed</span>
+                        <strong id="windSpeed">-- km/h</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>💧 Humidity</span>
+                        <strong id="humidity">--%</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.0"></script>
+</body>
+
+</html>
